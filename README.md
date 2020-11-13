@@ -1,6 +1,8 @@
 # OMGWDYD
 
+<p align="center">
 <img src="https://raw.githubusercontent.com/timmybytes/OMGWDYD/main/WDYD.GIF" alt="Chris Farley gif displaying text that reads What'd you do?" align="center" />
+</p>
 
 **OMGWDYD** (Oh My God, What Did You Do?!) is a command-line tool to help track my previous day's productivity and keep me motivated. Currently, it loops through my main projects folder, checks any git repos inside for commits made since the previous day, and prints them all to stdout in a concise format.
 
@@ -8,9 +10,9 @@
 
 _Currently WIP_
 
-<img src="https://raw.githubusercontent.com/timmybytes/OMGWDYD/main/OMGWDYD.png" alt="screenshot of OMGWDYD program displaying git repo results" max-width="300px" height="auto" />
-
-![Screenshot of OMGWDYD](./OMGWDYD.png)
+<p align="center">
+  <img src="https://raw.githubusercontent.com/timmybytes/OMGWDYD/main/OMGWDYD.png" alt="screenshot of OMGWDYD program displaying git repo results" width="420px" height="auto" />
+</p>
 
 Download the [`what_you_did.sh`](./what_you_did.sh) file.
 
