@@ -2,10 +2,16 @@ name: CI - ShellCheck
 
 on:
   push:
+    paths:
+      - "omgwdyd.sh"
     branches: [ main ]
   pull_request:
+    paths:
+      - "omgwdyd.sh"
     branches: [ main ]
   release:
+    paths:
+      - "omgwdyd.sh"
     branches: [ main ]
 
 jobs:
