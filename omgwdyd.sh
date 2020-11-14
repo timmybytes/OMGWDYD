@@ -2,12 +2,12 @@
 # ------------------------------------------------------------------
 # OH MY GOD, WHAT DID YOU DO?!
 # ------------------------------------------------------------------
-# title          :what_you_did.sh
+# title          :omgwdyd.sh
 # description    :Checks previous day's git commits
 # author         :Timothy Merritt
 # date           :2020-11-12
 # version        :0.0.1
-# usage          :./what_you_did.sh
+# usage          :./omgwdyd.sh
 # notes          :chmod +x runfile.sh to make executable
 # bash_version   :5.0.18(1)-release
 # ------------------------------------------------------------------
