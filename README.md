@@ -1,14 +1,25 @@
-<div align="center">
+<h1 align="center">
 <img src="./OMGWDYD-logo.png" alt="OMGWDYD logo with suprised emoji" />
-</div>
+</h1>
+
+<p align="center">
+  <strong>A CLI tool to motivate (or shame) you</strong>
+</p>
 
 <div align="center">
   <img src="https://github.com/timmybytes/OMGWDYD/workflows/CI%20-%20ShellCheck/badge.svg" alt="CI - ShellCheck badge" />
 </div>
 
-**OMGWDYD** (Oh My God, What Did You Do?!) is a command-line tool to help track my previous day's productivity and keep me motivated. Currently, it loops through my main projects folder, checks any git repos inside for commits made since the previous day, and prints them all to stdout in a concise format.
+<div align="center">
+  <sub>Built with ❤︎ by
+  <a href="https://timmybytes">Timothy Merritt</a>
+</div>
 
-## Usage
+<br />
+
+**OMGWDYD** (Oh My God, What Did You Do?!) is a command-line tool to help track the previous day's productivity to provide motivation. Currently, it loops through a main projects folder, checks any git repos inside for commits made since the previous day, and prints them all to stdout in a concise format.
+
+# Usage
 
 _Currently WIP_
 
