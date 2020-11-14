@@ -1,4 +1,4 @@
-# OMGWDYD
+<img src="./OMGWDYD-logo.png" alt="OMGWDYD logo with suprised emoji" />
 
 <p align="center">
   <img src="https://github.com/timmybytes/OMGWDYD/workflows/CI%20-%20ShellCheck/badge.svg" alt="CI - ShellCheck badge" />
