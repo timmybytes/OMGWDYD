@@ -30,7 +30,8 @@ for dir in ~/Projects/\#Repos/*; do
   # If directory is git repo, continue; else, next loop iteration
   if [ -d .git ]; then
     # If repo has commits since yesterday, continue; else, next loop iteration
-    if [[ $(git log --pretty=format:'%h was %an, %ar, message: %s' --since="yesterday") ]]; then
+    if [[ $(git log --pretty=format:'%h was %an, %ar, message: %s'
+	    --since="yesterday") ]]; then
       printf -- '-%.0s' {1..65}
       echo
       printf "// Repository: "
