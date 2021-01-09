@@ -45,7 +45,7 @@ for dir in ${repos}; do
       # Print git log since yesterday, show only commits
       git --no-pager log --since="yesterday" --pretty=tformat:"%x20*%x20%x20%s"
     else
-      shame+=(${PWD##*/})
+      shame+=("${PWD##*/}")
       continue
     fi
   else
@@ -65,7 +65,7 @@ printf '%s\n' "|"
 printf -- '-%.0s' {1..65}
 echo
 printf '%s\n' "// Unloved repositories: "
-for id in ${shame[@]}; do
+for id in "${shame[@]}"; do
   # printf -- '-%.0s' {1..65}
   # Print name of current directory removed from full filepath
   printf -- ' %.0s' {1..5}
