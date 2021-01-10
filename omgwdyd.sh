@@ -14,31 +14,31 @@
 
 # Clear screen
 clear
-figlet OMGWDYD
+printf '%s\n' "O M G W D Y D ? !"
 
 function header() {
   len=${#1}
-  spacer=$((60 - ${len}))
-  printf -- '┌%.0s' {1}
+  spacer=$((60 - len))
+  printf -- '┌%.0s' "${1}"
   printf -- '─%.0s' {1..63}
-  printf -- '╖%.0s' {1}
+  printf -- '╖%.0s' "${1}"
   echo
   printf '%s' "│ $1"
   printf -- ' %.0s' $(seq "$spacer")
   printf '%s\n' "║"
-  printf -- '╘%.0s' {1}
+  printf -- '╘%.0s' "${1}"
   printf -- '═%.0s' {1..63}
-  printf -- '╝%.0s' {1}
+  printf -- '╝%.0s' "${1}"
   echo
 }
 
 function repo_header() {
-  printf -- '┌%.0s' {1}
+  printf -- '┌%.0s' "${1}"
   printf -- '─%.0s' {1..64}
   echo
-  printf "│ // ${1}"
+  printf '%s' "│ // ${1}"
   printf '%s\n' "${2}"
-  printf -- '├%.0s' {1}
+  printf -- '├%.0s' "${1}"
   printf -- '─%.0s' {1..64}
   echo
 }
