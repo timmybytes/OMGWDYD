@@ -14,36 +14,51 @@
 
 # Clear screen
 clear
+figlet OMGWDYD
 
-# Header
-printf -- '-%.0s' {1..65}
-echo
-printf '%s' "| LOOK AT WHAT YOU DID"
-printf -- ' %.0s' {1..42}
-printf '%s\n' "|"
+function header() {
+  len=${#1}
+  spacer=$((60 - ${len}))
+  printf -- '┌%.0s' {1}
+  printf -- '─%.0s' {1..63}
+  printf -- '╖%.0s' {1}
+  echo
+  printf '%s' "│ $1"
+  printf -- ' %.0s' $(seq "$spacer")
+  printf '%s\n' "║"
+  printf -- '╘%.0s' {1}
+  printf -- '═%.0s' {1..63}
+  printf -- '╝%.0s' {1}
+  echo
+}
+
+function repo_header() {
+  printf -- '┌%.0s' {1}
+  printf -- '─%.0s' {1..64}
+  echo
+  printf "│ // ${1}"
+  printf '%s\n' "${2}"
+  printf -- '├%.0s' {1}
+  printf -- '─%.0s' {1..64}
+  echo
+}
 
 # Change this variable to the parent folder of your repos
 repos="$HOME/Projects/\#Repos/*"
 
+# Array for repos with no commits in 24 hours
 shame=()
-
-# For each directory in #Repos
+header "LOOK AT WHAT YOU DID ༼ つ ◕ ▽ ◕ ༽つ ｡･:*:･ﾟ★ ｡･:*:･ﾟ☆"
 for dir in ${repos}; do
   # If dir is a directory, cd into it and silence errors (for non-directories)
   cd "$dir" 2>/dev/null || exit
   # If directory is git repo, continue; else, next loop iteration
   if [ -d .git ]; then
-    # If repo has commits since yesterday, continue; else, next loop iteration
+    # If repo has commits since yesterday, continue; else, add repo to ${shame}, next loop iteration
     if [[ $(git log --pretty=format:'%h was %an, %ar, message: %s' --since="yesterday") ]]; then
-      printf -- '-%.0s' {1..65}
-      echo
-      printf "// Repository: "
-      # Print name of current directory removed from full filepath
-      printf '%s\n' "${PWD##*/}"
-      printf -- '-%.0s' {1..65}
-      echo
+      repo_header "Repository: " "${PWD##*/}"
       # Print git log since yesterday, show only commits
-      git --no-pager log --since="yesterday" --pretty=tformat:"%x20*%x20%x20%s"
+      git --no-pager log --since="yesterday" --pretty=tformat:"│%x20%x20*%x20%x20%s"
     else
       shame+=("${PWD##*/}")
       continue
@@ -57,21 +72,11 @@ for dir in ${repos}; do
 done
 
 # Show repos with NO commits in past 24 hours
-printf -- '-%.0s' {1..65}
-echo
-printf '%s' "| LOOK AT WHAT YOU DIDN'T DO"
-printf -- ' %.0s' {1..36}
-printf '%s\n' "|"
-printf -- '-%.0s' {1..65}
-echo
-printf '%s\n' "// Unloved repositories: "
+header "LOOK AT WHAT YOU DIDN'T DO ༼ つ ◕ _ ◕ ༽つ  . . . . . . . "
+repo_header "Repositories with 0 commits"
 for id in "${shame[@]}"; do
-  # printf -- '-%.0s' {1..65}
-  # Print name of current directory removed from full filepath
-  printf -- ' %.0s' {1..5}
+  printf '%s' "│"
+  printf -- ' %.0s' {1..4}
   printf '%s\n' "${id}"
-  # Print git log since yesterday, show only commits
-  # printf -- '-%.0s' {1..65}
 done
-printf -- '-%.0s' {1..65}
 echo
