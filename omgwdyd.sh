@@ -39,7 +39,7 @@ function repo_header() {
   printf -- '├%.0s' "${1}"
   # printf -- '┌%.0s' "${1}"
   printf -- '─%.0s' {1..63}
-  printf -- "╢%.0s"
+  printf -- "╢"
   # printf -- '╜%.0s'
   echo
   printf '%s' "│ // ${1}"
@@ -49,7 +49,7 @@ function repo_header() {
   # printf '%s\n' "${2}"
   printf -- '├%.0s' "${1}"
   printf -- '─%.0s' {1..63}
-  printf -- "╜%.0s"
+  printf -- "╜"
   echo
 }
 
