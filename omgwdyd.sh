@@ -17,29 +17,39 @@ clear
 printf '%s\n' "O M G W D Y D ? !"
 
 function header() {
-  len=${#1}
-  spacer=$((60 - len))
-  printf -- '┌%.0s' "${1}"
-  printf -- '─%.0s' {1..63}
-  printf -- '╖%.0s' "${1}"
+  local len=${#1}
+  local spacer=$((60 - len))
+  printf -- '╒%.0s' "${1}"
+  # printf -- '─%.0s' {1..63}
+  printf -- '═%.0s' {1..63}
+  printf -- '╗%.0s' "${1}"
   echo
   printf '%s' "│ $1"
   printf -- ' %.0s' $(seq "$spacer")
   printf '%s\n' "║"
-  printf -- '╘%.0s' "${1}"
-  printf -- '═%.0s' {1..63}
-  printf -- '╝%.0s' "${1}"
-  echo
+  # printf -- '╘%.0s' "${1}"
+  # printf -- '═%.0s' {1..63}
+  # printf -- '╝%.0s' "${1}"
+  # echo
 }
 
 function repo_header() {
-  printf -- '┌%.0s' "${1}"
-  printf -- '─%.0s' {1..64}
+  local len=${#1}
+  local spacer=$((59 - len))
+  printf -- '├%.0s' "${1}"
+  # printf -- '┌%.0s' "${1}"
+  printf -- '─%.0s' {1..63}
+  printf -- "╢%.0s"
+  # printf -- '╜%.0s'
   echo
   printf '%s' "│ // ${1}"
-  printf '%s\n' "${2}"
+  printf -- ' %.0s' $(seq "$spacer")
+  printf '%s\n' "║"
+  # printf '%s\n' "│"
+  # printf '%s\n' "${2}"
   printf -- '├%.0s' "${1}"
-  printf -- '─%.0s' {1..64}
+  printf -- '─%.0s' {1..63}
+  printf -- "╜%.0s"
   echo
 }
 
@@ -56,9 +66,9 @@ for dir in ${repos}; do
   if [ -d .git ]; then
     # If repo has commits since yesterday, continue; else, add repo to ${shame}, next loop iteration
     if [[ $(git log --pretty=format:'%h was %an, %ar, message: %s' --since="yesterday") ]]; then
-      repo_header "Repository: " "${PWD##*/}"
+      repo_header "Repository: ${PWD##*/}"
       # Print git log since yesterday, show only commits
-      git --no-pager log --since="yesterday" --pretty=tformat:"│%x20%x20*%x20%x20%s"
+      git --no-pager log --since="yesterday" --pretty=tformat:"│%x20%x20✓%x20%x20%s"
     else
       shame+=("${PWD##*/}")
       continue
@@ -75,8 +85,12 @@ done
 header "LOOK AT WHAT YOU DIDN'T DO ༼ つ ◕ _ ◕ ༽つ  . . . . . . . "
 repo_header "Repositories with 0 commits"
 for id in "${shame[@]}"; do
+  len=${#id}
+  spacer=$((58 - len))
   printf '%s' "│"
-  printf -- ' %.0s' {1..4}
-  printf '%s\n' "${id}"
+  printf -- ' %.0s' {1..2}
+  printf '%s\n' "✗  ${id}"
+  # printf -- ' %.0s' $(seq "$spacer")
+  # printf '%s\n' "║"
 done
 echo
