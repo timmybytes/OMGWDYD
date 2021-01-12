@@ -12,6 +12,12 @@
 # bash_version   :5.0.18(1)-release
 # ------------------------------------------------------------------
 
+# Change this variable to the parent folder of your repos
+repos="$HOME/Projects/\#Repos/*"
+
+# Array for repos with no commits in 24 hours
+shame=()
+
 # Clear screen
 clear
 printf '%s\n' "O M G W D Y D ? !"
@@ -53,11 +59,6 @@ function repo_header() {
   echo
 }
 
-# Change this variable to the parent folder of your repos
-repos="$HOME/Projects/\#Repos/*"
-
-# Array for repos with no commits in 24 hours
-shame=()
 header "LOOK AT WHAT YOU DID ༼ つ ◕ ▽ ◕ ༽つ ｡･:*:･ﾟ★ ｡･:*:･ﾟ☆"
 for dir in ${repos}; do
   # If dir is a directory, cd into it and silence errors (for non-directories)
