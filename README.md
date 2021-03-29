@@ -17,6 +17,8 @@
 
 <br />
 
+***CURRENTLY NOT-OPERATIONAL - WIP***
+
 **OMGWDYD** (Oh My God, What Did You Do?!) is a command-line tool written in Bash to help track the previous day's productivity to provide motivation. Currently, it loops through a main projects folder, checks any git repos inside for commits made since the previous day, and prints them all to stdout in a concise format.
 
 # Usage

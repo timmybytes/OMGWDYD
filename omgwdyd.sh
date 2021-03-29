@@ -33,9 +33,9 @@ function header() {
   printf '%s' "│ $1"
   printf -- ' %.0s' $(seq "$spacer")
   printf '%s\n' "║"
-  # printf -- '╘%.0s' "${1}"
-  # printf -- '═%.0s' {1..63}
-  # printf -- '╝%.0s' "${1}"
+  printf -- '╘%.0s' "${1}"
+  printf -- '═%.0s' {1..63}
+  printf -- '╝%.0s' "${1}"
   # echo
 }
 
@@ -43,16 +43,16 @@ function repo_header() {
   local len=${#1}
   local spacer=$((59 - len))
   printf -- '├%.0s' "${1}"
-  # printf -- '┌%.0s' "${1}"
+  printf -- '┌%.0s' "${1}"
   printf -- '─%.0s' {1..63}
   printf -- "╢"
-  # printf -- '╜%.0s'
+  printf -- '╜%.0s'
   echo
   printf '%s' "│ // ${1}"
   printf -- ' %.0s' $(seq "$spacer")
   printf '%s\n' "║"
-  # printf '%s\n' "│"
-  # printf '%s\n' "${2}"
+  printf '%s\n' "│"
+  printf '%s\n' "${2}"
   printf -- '├%.0s' "${1}"
   printf -- '─%.0s' {1..63}
   printf -- "╜"
@@ -91,7 +91,7 @@ for id in "${shame[@]}"; do
   printf '%s' "│"
   printf -- ' %.0s' {1..2}
   printf '%s\n' "✗  ${id}"
-  # printf -- ' %.0s' $(seq "$spacer")
-  # printf '%s\n' "║"
+  printf -- ' %.0s' $(seq "$spacer")
+  printf '%s\n' "║"
 done
 echo
