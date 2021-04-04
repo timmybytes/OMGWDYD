@@ -42,11 +42,12 @@ function header() {
 function repo_header() {
   local len=${#1}
   local spacer=$((59 - len))
+  echo
   printf -- '├%.0s' "${1}"
   printf -- '┌%.0s' "${1}"
   printf -- '─%.0s' {1..63}
   printf -- "╢"
-  printf -- '╜%.0s'
+  # printf -- '╜%.0s'
   echo
   printf '%s' "│ // ${1}"
   printf -- ' %.0s' $(seq "$spacer")
